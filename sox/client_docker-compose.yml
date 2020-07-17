@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  soxclient:
+    build: .
+    container_name: streisox
+    dns:
+      - 1.1.1.1
+    environment:
+      CIPHER_TYPE: chacha20-ietf-poly1305
+      MODE: client
+      REMOTE_ADDR: 138.68.251.235
+      REMOTE_PORT: 8530
+      LOCAL_ADDR: 0.0.0.0
+      LOCAL_PORT: 1180
+      REMOTE_PSS_FILE: /run/secrets/sox_secret
+    image: 9bkerzya/shosox:sox
+    network_mode: host
+    privileged: true
+    secrets:
+      - sox_secret
+
+secrets:
+  sox_secret:
+    file: sox_hello_pss.txt
+
