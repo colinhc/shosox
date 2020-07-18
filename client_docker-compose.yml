@@ -14,7 +14,11 @@ services:
       LOCAL_PORT: 1180
       REMOTE_PSS_FILE: /run/secrets/sox_secret
     image: 9bkerzya/shosox:sox
-    network_mode: host
+    ports:
+      - "1180:1180"
+      - "1180:1180/udp"
+    networks:
+      - streisox_net
     privileged: true
     secrets:
       - sox_secret
@@ -23,3 +27,5 @@ secrets:
   sox_secret:
     file: sox_hello_pss.txt
 
+networks:
+  streisox_net:
