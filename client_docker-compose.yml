@@ -8,7 +8,7 @@ services:
     environment:
       CIPHER_TYPE: chacha20-ietf-poly1305
       MODE: client
-      REMOTE_ADDR: 138.68.251.235
+      REMOTE_ADDR: u38.uk.to
       REMOTE_PORT: 8530
       LOCAL_ADDR: 0.0.0.0
       LOCAL_PORT: 1180
