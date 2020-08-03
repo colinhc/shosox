@@ -11,6 +11,12 @@
       regexp: "^LOGLEVEL"
       line: "LOGLEVEL=off"
 
+  - name: Disable IPv6
+    lineinfile:
+      dest: /etc/default/ufw
+      regexp: "^IPV6"
+      line: "IPV6=no"
+
   - name: Change the default forward policy
     lineinfile:
       dest: /etc/default/ufw
@@ -25,6 +31,6 @@
 
   - name: Ensure UFW allows Shadowsocks
     ufw:
-      to_port: "8888"
+      to_port: "1080"
       proto: "any"
       rule: "allow"

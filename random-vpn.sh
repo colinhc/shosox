@@ -37,7 +37,7 @@ function start_vpn() {
 	local outfile=$2
         local dryrun=$3
 	pushd $ovpn_path
-        local selected_ovpn=$(ls us-sfo* us-lax* us-las* us-sea* | shuf -n 1)
+        local selected_ovpn=$(ls us-sfo* us-lax* us-sea* | shuf -n 1)
         [ -z "$selected_ovpn" ] && printf "No ovpn found!!\n" && exit 1
 	echo 'OVPN selected ' ${selected_ovpn}
         if [[ "$dryrun" = "true" ]]; then

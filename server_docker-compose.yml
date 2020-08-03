@@ -9,7 +9,7 @@ services:
       CIPHER_TYPE: chacha20-ietf-poly1305
       MODE: server
       REMOTE_ADDR: 0.0.0.0
-      REMOTE_PORT: 8888
+      REMOTE_PORT: 1080
       REMOTE_PSS_FILE: /run/secrets/sox_secret
     image: 9bkerzya/shosox:sox
     network_mode: service:sho
@@ -21,14 +21,15 @@ services:
     container_name: sho
     dns:
       - 1.1.1.1
+      - 1.0.0.1
     environment:
       LAN_NETWORK: "192.168.193.0/24"
     image: 9bkerzya/shosox:sho
     networks:
       - sho_vpn
     ports:
-      - "8888:8888"
-      - "8888:8888/udp"
+      - "1080:1080"
+      - "1080:1080/udp"
     privileged: true
     volumes:
       - /home/samba/backup/ovpn-files:/ovpn-files
