@@ -1,7 +1,7 @@
 FROM 9bkerzya/avari:base
 
 RUN apt-get update \
-    && apt-get install -y shadowsocks-libev
+    && apt-get install -y shadowsocks-libev ufw
 
 ADD *.sh /sox/
 ADD ufw.yml /sox/
